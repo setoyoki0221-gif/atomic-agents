@@ -1,13 +1,8 @@
-import os
 from typing import Callable, List
 from pydantic import BaseModel, Field
 from datetime import datetime
 from abc import ABC, abstractmethod
-from groq import Groq
-import instructor
-import openai
 from atomic_agents.lib.chat_memory import ChatMemory
-from rich.console import Console
 
 class BasicChatAgentInputSchema(BaseModel):
     chat_input: str = Field(..., description='The input text for the chat agent.')
@@ -36,24 +31,6 @@ class DynamicInfoProviderBase(ABC):
     def get_info(self) -> str:
         pass
 
-class CurrentDateProvider(DynamicInfoProviderBase):
-    def __init__(self, title: str, format: str = '%Y-%m-%d %H:%M:%S'):
-        super().__init__(title)
-        self.format = format
-
-    def get_info(self) -> str:
-        return f'The current date, in the format "{self.format}", is {datetime.now().strftime(self.format)}'
-
-class LiveSearchResultsProvider(DynamicInfoProviderBase):
-    def __init__(self, title: str, search_query: str):
-        super().__init__(title)
-        self.search_query = search_query
-
-    def get_info(self) -> str:
-        # Placeholder for live search results fetching logic
-        # In a real implementation, this would fetch live data from a search API
-        return f'Live search results for "{self.search_query}"'
-
 class SystemPromptGenerator:
     def __init__(self, system_prompt: SystemPrompt, dynamic_info_providers: List[DynamicInfoProviderBase] = None):
         self.system_prompt = system_prompt
@@ -67,7 +44,7 @@ class SystemPromptGenerator:
             system_prompt += f'-{'\n-'.join(self.system_prompt.background)}\n\n'
 
         if self.system_prompt.steps:
-            system_prompt += '# Steps\n'
+            system_prompt += '# INTERNAL ASSISTANT STEPS\n'
             system_prompt += f'-{'\n-'.join(self.system_prompt.steps)}\n\n'
 
         if self.system_prompt.output_instructions:
@@ -117,7 +94,31 @@ class BasicChatAgent:
         self.memory.add_message('assistant', response.model_dump_json())
         return response
 
-if __name__ == '__main__':   
+if __name__ == '__main__':
+    import os
+    import instructor
+    import openai
+    from groq import Groq
+    from rich.console import Console
+
+    class CurrentDateProvider(DynamicInfoProviderBase):
+        def __init__(self, title: str, format: str = '%Y-%m-%d %H:%M:%S'):
+            super().__init__(title)
+            self.format = format
+
+        def get_info(self) -> str:
+            return f'The current date, in the format "{self.format}", is {datetime.now().strftime(self.format)}'
+
+    class LiveSearchResultsProvider(DynamicInfoProviderBase):
+        def __init__(self, title: str, search_query: str):
+            super().__init__(title)
+            self.search_query = search_query
+
+        def get_info(self) -> str:
+            # Placeholder for live search results fetching logic
+            # In a real implementation, this would fetch live data from a search API
+            return f'Live search results for "{self.search_query}"'
+    
     console = Console()
     
     # Configuration dictionary
@@ -136,33 +137,59 @@ if __name__ == '__main__':
     use_groq = False  # Set this to True to use Groq, False to use OpenAI
     chosen_config = config['groq'] if use_groq else config['openai']
     
-    class MyChatAgentResponse(BaseModel):
-        observations: List[str] = Field(..., description='What the agent observes in the current state of the conversation.')
-        thought_process: List[str] = Field(..., description='The thought process of the agent in formulating the response.')
-        final_response: str = Field(..., description='The markdown-enabled response from the chat agent.')
+    class PlanStep(BaseModel):
+        step: str
+        description: str
+        substeps: List[str] = []
+    
+    class ArticleBuddyPlanResponse(BaseModel):
+        observations: List[str] = Field(..., description='What is the conversation about? What are the key points?')
+        thoughts: List[str] = Field(..., description='What is the thought process involved in preparing the ideas and outline?')
+        response_plan: List[PlanStep] = Field(..., description='What are the steps involved in generating the ideas and outline?')
         
         class Config:
-            title = 'BasicChatAgentResponse'
-            description = 'Response from the basic chat agent. The response can be in markdown format.'
+            title = 'ArticleBuddyPlanResponse'
+            description = 'Response plan from the Article Buddy chat agent.'
             json_schema_extra = {
                 'title': title,
                 'description': description
             }
 
+    class ArticleBuddyResponse(BaseModel):
+        response: str = Field(..., description='The markdown-enabled response from the chat agent.')
+        
+        class Config:
+            title = 'ArticleBuddyResponse'
+            description = 'Response from the Article Buddy chat agent.'
+            json_schema_extra = {
+                'title': title,
+                'description': description
+            }
+
+    class MyChatAgent(BasicChatAgent):
+        def run(self, user_input: str) -> ArticleBuddyResponse:
+            self.memory.add_message('user', user_input)
+            self.memory.add_message('assistant', 'First, let me note the observations about the input and thought process involved in preparing the ideas and outline.')
+            plan = self.get_response(response_model=ArticleBuddyPlanResponse)
+            self.memory.add_message('assistant', plan.model_dump_json())
+            response = self.get_response(response_model=ArticleBuddyResponse)
+            self.memory.add_message('assistant', response.model_dump_json())
+            return response
+
     system_prompt = SystemPrompt(
         background=[
-            'You are an expert in brainstorming ideas and creating article outlines.',
-            'Your goal is to generate engaging and creative ideas and structured outlines for articles based on the given topic.'
+            'This assistant is an expert in brainstorming ideas and creating article outlines.',
+            'This assistant\'s goal is to generate engaging and creative ideas and structured outlines for articles based on the given topic.'
         ],
         steps=[
-            'Take the input given as the topic for the ideas and article outline.',
-            'Brainstorm and create a list of 10 unique and creative ideas based on the given topic.',
-            'Generate a structured article outline based on the given topic and the brainstormed ideas.'
+            'Note the observations about the input and thought process involved in preparing the ideas and outline.',
+            'Respond with a list of 10 ideas and a structured outline for the article in a markdown-formatted text.'
         ],
         output_instructions=[
             'Ensure each idea is clearly numbered from 1 to 10.',
             'Output the list of ideas and the article outline in human-readable Markdown format.',
-            'Do not include any additional text or confirmation messages; only provide the list of ideas and the article outline.'
+            'Do not include any additional text or confirmation messages; only provide the list of ideas and the article outline.',
+            'Do not reply to the user\'s input with anything except the list of ideas and the article outline.'
         ]
     )
 
@@ -177,13 +204,13 @@ if __name__ == '__main__':
         CurrentDateProvider('Current date', format='%Y-%m-%d %H:%M:%S'),
     ]
 
-    agent = BasicChatAgent(
+    agent = MyChatAgent(
         client=chosen_config['client'], 
         model=chosen_config['model'],
         system_prompt=system_prompt,
         memory=memory,
         dynamic_info_providers=dynamic_info_providers,
-        output_schema=MyChatAgentResponse
+        output_schema=ArticleBuddyResponse
     )
     console.print(f'Agent: {initial_memory[0]["content"]}')
 
@@ -194,4 +221,4 @@ if __name__ == '__main__':
             break
 
         response = agent.run(user_input)
-        console.print(f'Agent: {response.final_response}')
+        console.print(f'Agent: {response.response}')

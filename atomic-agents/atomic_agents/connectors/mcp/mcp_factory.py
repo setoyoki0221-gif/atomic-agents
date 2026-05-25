@@ -848,7 +848,7 @@ class MCPFactory:
                             if isinstance(content, str):
                                 texts.append(content)
                             elif isinstance(content, dict):
-                                texts.append(content.get("text"))
+                                texts.append(content.get("text", ""))
                             elif getattr(content, "text", None):
                                 texts.append(content.text)  # type: ignore
                             else:

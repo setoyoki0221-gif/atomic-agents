@@ -190,6 +190,7 @@ if ($dryRun) {
     Write-Host "[DRY RUN] Would perform the following actions:"
     Write-Host "[DRY RUN] - Build consolidated atomic-agents package"
     Write-Host "[DRY RUN] - Install dependencies with uv sync"
+    Write-Host "[DRY RUN] - Clean stale artifacts from dist directory"
     Write-Host "[DRY RUN] - Build package with uv build"
     Write-Host "[DRY RUN] - Configure PyPI token"
     Write-Host "[DRY RUN] - Upload to PyPI with uv publish"
@@ -202,6 +203,12 @@ Write-Host "Building consolidated atomic-agents package..."
 
 # Install dependencies
 uv sync
+
+# Remove stale artifacts so we only publish the version we just built
+if (Test-Path "dist") {
+    Write-Host "Cleaning dist directory of stale artifacts..."
+    Remove-Item "dist\*" -Recurse -Force
+}
 
 # Build the package
 uv build

@@ -363,3 +363,32 @@ Atomic Agents emphasizes:
 5. **Community** - Active development with examples, docs, and support
 
 This framework is designed for developers who want to build **reliable, maintainable AI applications** using standard software engineering practices, rather than dealing with unpredictable autonomous agent systems.
+
+---
+
+<!-- skill-forge:begin -->
+## Skill system (self-improving)
+
+This project captures repeatable agent workflows as small, single-purpose,
+verified skills under `.claude/skills/`. Build and maintain them with the
+**skill-forge** skill — never do a repeatable workflow ad hoc.
+
+**Proactively (notice → propose → ask):** while working, if you notice a
+multi-step workflow being repeated with no skill, a SKILL.md growing past ~500
+lines or sprouting a second capability, a skill whose instructions have drifted
+from reality, or two skills with overlapping triggers — briefly propose forging or
+refactoring, then wait for my go-ahead. Never forge or restructure silently or
+mid-task without consent.
+
+**When building/changing a skill:** keep it atomic (one capability; if it needs an
+"and", it's two skills), compose the shared surfaces below instead of
+reimplementing, always include a runnable/documented proof of its success
+criteria, and cross-reference related skills both ways.
+
+### Project profile (for skill-forge auto-detect)
+- Stack / package manager: Python ≥3.12, uv workspace (hatchling build); Pydantic v2 + Instructor for structured LLM output
+- Verify command(s): `uv run black atomic-agents atomic-assembler atomic-examples atomic-forge` (line-length 127); `uv run flake8 --extend-exclude=.venv atomic-agents atomic-assembler atomic-examples atomic-forge`; `uv run pytest --cov=atomic_agents atomic-agents`
+- Shared surfaces to compose: core framework `atomic-agents/atomic_agents/` (AtomicAgent, BaseIOSchema, BaseTool, context providers, MCP connectors); CLI `atomic` (atomic-assembler); downloadable tools `atomic-forge/tools/*`; runnable examples `atomic-examples/*`
+- Skill convention: frontmatter `name` + `description` (optional `allowed-tools`); one skill per dir at `.claude/skills/<name>/SKILL.md`
+- Current skills: `release` (project-local); `skill-forge` + `skill-forge-setup` (installed via plugin `claude-dev-kitchen`)
+<!-- skill-forge:end -->

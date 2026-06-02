@@ -79,7 +79,7 @@ def setup_client(provider):
             MiniMaxClient(base_url="https://api.minimax.io/v1", api_key=api_key),
             mode=instructor.Mode.JSON,
         )
-        model = "MiniMax-M2.7"
+        model = "MiniMax-M3"
         model_api_parameters = {"max_tokens": 2048}
         assistant_role = "assistant"
     else:

@@ -22,7 +22,7 @@ pytestmark = pytest.mark.skipif(
 )
 
 
-def _make_minimax_agent(model="MiniMax-M2.7", **agent_kwargs):
+def _make_minimax_agent(model="MiniMax-M3", **agent_kwargs):
     """Helper to create a MiniMax-backed agent."""
     from openai import OpenAI
 
@@ -71,7 +71,7 @@ class TestMiniMaxLiveChat:
             api_key=os.environ["MINIMAX_API_KEY"],
         )
         client = instructor.from_openai(raw, mode=instructor.Mode.JSON)
-        config = AgentConfig(client=client, model="MiniMax-M2.7", mode=instructor.Mode.JSON)
+        config = AgentConfig(client=client, model="MiniMax-M3", mode=instructor.Mode.JSON)
         agent = AtomicAgent[BasicChatInputSchema, AnalysisOutput](config)
 
         response = agent.run(BasicChatInputSchema(chat_message="I love this product, it's amazing!"))

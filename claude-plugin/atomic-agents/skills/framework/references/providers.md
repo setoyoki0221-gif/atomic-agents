@@ -135,7 +135,7 @@ client = instructor.from_openai(
     OpenAI(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"]),
     mode=Mode.JSON,
 )
-model = "MiniMax-M2.7"
+model = "MiniMax-M3"   # current default; "MiniMax-M2.7" remains available as a legacy option
 api_params = {"max_tokens": 2048}
 ```
 

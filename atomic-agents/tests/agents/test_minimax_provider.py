@@ -40,9 +40,9 @@ class TestMiniMaxClientSetup:
         client = _create_minimax_client()
         config = AgentConfig(
             client=client,
-            model="MiniMax-M2.7",
+            model="MiniMax-M3",
         )
-        assert config.model == "MiniMax-M2.7"
+        assert config.model == "MiniMax-M3"
         assert config.assistant_role == "assistant"
 
     def test_minimax_agent_initialization(self):
@@ -50,31 +50,21 @@ class TestMiniMaxClientSetup:
         client = _create_minimax_client()
         config = AgentConfig(
             client=client,
+            model="MiniMax-M3",
+        )
+        agent = AtomicAgent[BasicChatInputSchema, BasicChatOutputSchema](config)
+        assert agent.model == "MiniMax-M3"
+        assert agent.assistant_role == "assistant"
+
+    def test_minimax_m27_legacy_model(self):
+        """Test that the legacy M2.7 model variant still works."""
+        client = _create_minimax_client()
+        config = AgentConfig(
+            client=client,
             model="MiniMax-M2.7",
         )
         agent = AtomicAgent[BasicChatInputSchema, BasicChatOutputSchema](config)
         assert agent.model == "MiniMax-M2.7"
-        assert agent.assistant_role == "assistant"
-
-    def test_minimax_m25_model(self):
-        """Test that M2.5 model variant works."""
-        client = _create_minimax_client()
-        config = AgentConfig(
-            client=client,
-            model="MiniMax-M2.5",
-        )
-        agent = AtomicAgent[BasicChatInputSchema, BasicChatOutputSchema](config)
-        assert agent.model == "MiniMax-M2.5"
-
-    def test_minimax_m25_highspeed_model(self):
-        """Test that M2.5-highspeed model variant works."""
-        client = _create_minimax_client()
-        config = AgentConfig(
-            client=client,
-            model="MiniMax-M2.5-highspeed",
-        )
-        agent = AtomicAgent[BasicChatInputSchema, BasicChatOutputSchema](config)
-        assert agent.model == "MiniMax-M2.5-highspeed"
 
 
 class TestMiniMaxAgentBehavior:
@@ -96,7 +86,7 @@ class TestMiniMaxAgentBehavior:
     def minimax_agent(self, mock_minimax_instructor):
         config = AgentConfig(
             client=mock_minimax_instructor,
-            model="MiniMax-M2.7",
+            model="MiniMax-M3",
         )
         return AtomicAgent[BasicChatInputSchema, BasicChatOutputSchema](config)
 
@@ -112,7 +102,7 @@ class TestMiniMaxAgentBehavior:
         user_input = BasicChatInputSchema(chat_message="Test")
         minimax_agent.run(user_input)
         call_kwargs = mock_minimax_instructor.chat.completions.create.call_args
-        assert call_kwargs.kwargs["model"] == "MiniMax-M2.7"
+        assert call_kwargs.kwargs["model"] == "MiniMax-M3"
 
     def test_run_stream_with_minimax(self, minimax_agent):
         """Test that streaming works with MiniMax mock client."""
@@ -135,7 +125,7 @@ class TestMiniMaxAgentBehavior:
         )
         config = AgentConfig(
             client=mock_minimax_instructor,
-            model="MiniMax-M2.7",
+            model="MiniMax-M3",
             system_prompt_generator=spg,
         )
         agent = AtomicAgent[BasicChatInputSchema, BasicChatOutputSchema](config)
@@ -146,7 +136,7 @@ class TestMiniMaxAgentBehavior:
         """Test that custom API parameters are passed through."""
         config = AgentConfig(
             client=mock_minimax_instructor,
-            model="MiniMax-M2.7",
+            model="MiniMax-M3",
             model_api_parameters={"temperature": 0.7, "max_tokens": 1024},
         )
         agent = AtomicAgent[BasicChatInputSchema, BasicChatOutputSchema](config)

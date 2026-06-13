@@ -83,7 +83,7 @@ class ArxivSearchToolConfig(BaseToolConfig):
 
     base_url: str = Field(default="https://export.arxiv.org/api/query", description="Base URL of the arXiv API.")
     user_agent: str = Field(
-        default="atomic-agents-arxiv-tool/1.0 (+https://github.com/BrainBlend-AI/atomic-agents)",
+        default="atomic-agents-arxiv-tool/1.0 (+https://github.com/eigenwise/atomic-agents)",
         description="User agent string for arXiv requests.",
     )
     timeout: float = Field(default=20.0, ge=1.0, le=120.0, description="HTTP request timeout in seconds.")

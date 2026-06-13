@@ -75,7 +75,7 @@ class WikipediaSearchToolConfig(BaseToolConfig):
     """Configuration for the WikipediaSearchTool."""
 
     user_agent: str = Field(
-        default="atomic-agents-wikipedia-tool/1.0 (+https://github.com/BrainBlend-AI/atomic-agents)",
+        default="atomic-agents-wikipedia-tool/1.0 (+https://github.com/eigenwise/atomic-agents)",
         description="User agent for Wikipedia API requests. Wikipedia asks for a descriptive UA.",
     )
     timeout: float = Field(default=15.0, ge=1.0, le=120.0, description="HTTP request timeout in seconds.")

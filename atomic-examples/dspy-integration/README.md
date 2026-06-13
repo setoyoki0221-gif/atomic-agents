@@ -767,7 +767,7 @@ MIT License - Part of the Atomic Agents monorepo.
 ## Further Reading
 
 - [DSPy Documentation](https://dspy-docs.vercel.app/)
-- [Atomic Agents Documentation](https://github.com/BrainBlend-AI/atomic-agents)
+- [Atomic Agents Documentation](https://github.com/eigenwise/atomic-agents)
 - [Instructor Documentation](https://python.useinstructor.com/)
 - [Pydantic Documentation](https://docs.pydantic.dev/)
 

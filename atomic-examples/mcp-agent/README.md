@@ -67,7 +67,7 @@ This example shows the flexibility of the MCP architecture with two distinct tra
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/BrainBlend-AI/atomic-agents
+   git clone https://github.com/eigenwise/atomic-agents
    cd atomic-agents/atomic-examples/mcp-agent
    ```
 
@@ -205,5 +205,5 @@ Try queries like:
 
 ## Learn More
 
-- [Atomic Agents Documentation](https://github.com/BrainBlend-AI/atomic-agents)
+- [Atomic Agents Documentation](https://github.com/eigenwise/atomic-agents)
 - [Model Context Protocol](https://modelcontextprotocol.io/)

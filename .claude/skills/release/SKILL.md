@@ -91,7 +91,7 @@ Brief description of the feature.
 - Fix 1
 
 ### Full Changelog
-https://github.com/BrainBlend-AI/atomic-agents/compare/vOLD...vNEW
+https://github.com/eigenwise/atomic-agents/compare/vOLD...vNEW
 ```
 
 ## Checklist

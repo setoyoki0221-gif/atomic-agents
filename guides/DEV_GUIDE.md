@@ -36,7 +36,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 1. Fork the repository on GitHub.
 2. Clone your fork locally:
    ```bash
-   git clone https://github.com/BrainBlend-AI/atomic-agents.git
+   git clone https://github.com/eigenwise/atomic-agents.git
    cd atomic-agents
    ```
 3. Install dependencies using uv:

@@ -163,7 +163,7 @@ User Query: "Calculate (5 + 3) * 2 and reverse 'hello'"
 
 ```bash
 # Clone the repository
-git clone https://github.com/BrainBlend-AI/atomic-agents
+git clone https://github.com/eigenwise/atomic-agents
 cd atomic-agents/atomic-examples/progressive-disclosure
 
 # Install dependencies
@@ -275,7 +275,7 @@ if __name__ == "__main__":
 - [Anthropic: Code Execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)
 - [FastMCP Documentation](https://gofastmcp.com)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
-- [Atomic Agents Documentation](https://github.com/BrainBlend-AI/atomic-agents)
+- [Atomic Agents Documentation](https://github.com/eigenwise/atomic-agents)
 
 ## See Also
 

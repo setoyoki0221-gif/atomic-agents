@@ -116,22 +116,22 @@ print(response)
 
 ## Example Projects
 
-Check out our example projects in our [GitHub repository](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples):
+Check out our example projects in our [GitHub repository](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples):
 
-- [Quickstart Examples](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/quickstart): Simple examples to get started
-- [Hooks System](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/hooks-example): Comprehensive monitoring, error handling, and performance metrics
-- [Basic Multimodal](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/basic-multimodal): Analyze images with text
-- [RAG Chatbot](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/rag-chatbot): Build context-aware chatbots
-- [Web Search Agent](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/web-search-agent): Create agents that perform web searches
-- [Deep Research](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/deep-research): Perform deep research tasks
-- [YouTube Summarizer](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/youtube-summarizer): Extract knowledge from videos
-- [YouTube to Recipe](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/youtube-to-recipe): Convert cooking videos into structured recipes
-- [Orchestration Agent](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/orchestration-agent): Coordinate multiple agents for complex tasks
+- [Quickstart Examples](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/quickstart): Simple examples to get started
+- [Hooks System](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/hooks-example): Comprehensive monitoring, error handling, and performance metrics
+- [Basic Multimodal](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/basic-multimodal): Analyze images with text
+- [RAG Chatbot](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/rag-chatbot): Build context-aware chatbots
+- [Web Search Agent](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/web-search-agent): Create agents that perform web searches
+- [Deep Research](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/deep-research): Perform deep research tasks
+- [YouTube Summarizer](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/youtube-summarizer): Extract knowledge from videos
+- [YouTube to Recipe](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/youtube-to-recipe): Convert cooking videos into structured recipes
+- [Orchestration Agent](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/orchestration-agent): Coordinate multiple agents for complex tasks
 
 ## Community & Support
 
-- [GitHub Repository](https://github.com/BrainBlend-AI/atomic-agents)
-- [Issue Tracker](https://github.com/BrainBlend-AI/atomic-agents/issues)
+- [GitHub Repository](https://github.com/eigenwise/atomic-agents)
+- [Issue Tracker](https://github.com/eigenwise/atomic-agents/issues)
 - [Reddit Community](https://www.reddit.com/r/AtomicAgents/)
 
 ## Indices and References

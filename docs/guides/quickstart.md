@@ -2,8 +2,8 @@
 
 **See also:**
 
-- [Quickstart runnable examples on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/quickstart)
-- [All Atomic Agents examples on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples)
+- [Quickstart runnable examples on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/quickstart)
+- [All Atomic Agents examples on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples)
 
 This guide will help you get started with the Atomic Agents framework. We'll cover basic usage, custom agents, and different AI providers.
 
@@ -448,4 +448,4 @@ After trying these examples, you can:
 
 ## Explore More Examples
 
-For more advanced usage and examples, please check out the [Atomic Agents examples on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples). These examples demonstrate various capabilities of the framework including custom schemas, advanced history usage, tool integration, and more.
+For more advanced usage and examples, please check out the [Atomic Agents examples on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples). These examples demonstrate various capabilities of the framework including custom schemas, advanced history usage, tool integration, and more.

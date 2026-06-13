@@ -11,7 +11,7 @@ version = "0.1.0"
 description = "Progressive Disclosure example for Atomic Agents - demonstrating Anthropic's pattern for efficient MCP tool loading"
 readme = "README.md"
 authors = [
-    { name = "KennyVaneetvelde", email = "kenny@inosta.be" }
+    { name = "Kenny Vaneetvelde", email = "kenny@eigenwise.io" }
 ]
 requires-python = ">=3.12"
 dependencies = [

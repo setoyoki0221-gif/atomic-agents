@@ -36,7 +36,7 @@ Make sure to add these lines to `settings.tml`:
 1. Clone the Atomic Agents repository:
 
    ```bash
-   git clone https://github.com/BrainBlend-AI/atomic-agents
+   git clone https://github.com/eigenwise/atomic-agents
    ```
 
 1. Navigate to the web-search-agent directory:

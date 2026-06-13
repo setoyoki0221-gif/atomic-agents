@@ -421,7 +421,7 @@ def test_messages_sync_after_run(mock_instructor, mock_system_prompt_generator):
     Test that agent.messages includes the assistant response after run() completes.
 
     Regression test for GitHub issue #194:
-    https://github.com/BrainBlend-AI/atomic-agents/issues/194
+    https://github.com/eigenwise/atomic-agents/issues/194
 
     The issue was that agent.messages only contained the system prompt and user message
     after run(), while agent.history.get_history() correctly included the assistant response.

@@ -13,7 +13,7 @@ This example demonstrates how to use the Atomic Agents framework to analyze a PD
 
 1. Clone the main Atomic Agents repository:
    ```bash
-   git clone https://github.com/BrainBlend-AI/atomic-agents
+   git clone https://github.com/eigenwise/atomic-agents
    ```
 
 2. Navigate to the basic-pdf-analysis directory:

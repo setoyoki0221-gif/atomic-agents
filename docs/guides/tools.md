@@ -118,7 +118,7 @@ Use this pattern when:
 - The set of candidate tools is small (a handful, not dozens — Union grows the prompt).
 - You want the LLM's reasoning for the choice to be inspectable (extend the output schema with a `reasoning: str` field).
 
-A complete, runnable version of this pattern lives in [`atomic-examples/orchestration-agent`](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/orchestration-agent). The [Orchestration guide](orchestration.md) covers tool-selection, multi-agent pipelines, dynamic routing, and parallel execution in more depth.
+A complete, runnable version of this pattern lives in [`atomic-examples/orchestration-agent`](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/orchestration-agent). The [Orchestration guide](orchestration.md) covers tool-selection, multi-agent pipelines, dynamic routing, and parallel execution in more depth.
 
 ## Picking a pattern
 
@@ -286,7 +286,7 @@ class MyTool(BaseTool[MyToolInputSchema, MyToolOutputSchema]):
 
 ## Next steps
 
-1. Browse available tools in the [Atomic Forge directory](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-forge).
-2. Try Pattern 1 by chaining a query agent into a search tool — the [README's "Chaining Schemas" example](https://github.com/BrainBlend-AI/atomic-agents#chaining-schemas-and-agents) is a good starting point.
-3. Try Pattern 2 by running the [orchestration-agent example](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/orchestration-agent).
+1. Browse available tools in the [Atomic Forge directory](https://github.com/eigenwise/atomic-agents/tree/main/atomic-forge).
+2. Try Pattern 1 by chaining a query agent into a search tool — the [README's "Chaining Schemas" example](https://github.com/eigenwise/atomic-agents#chaining-schemas-and-agents) is a good starting point.
+3. Try Pattern 2 by running the [orchestration-agent example](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/orchestration-agent).
 4. Build your own tool and contribute it back via the Atomic Forge.

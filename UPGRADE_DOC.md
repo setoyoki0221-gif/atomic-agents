@@ -749,7 +749,7 @@ If you encounter runtime errors:
 
 If you encounter issues during migration:
 
-1. Check the [GitHub Issues](https://github.com/BrainBlend-AI/atomic-agents/issues)
+1. Check the [GitHub Issues](https://github.com/eigenwise/atomic-agents/issues)
 2. Join the [Discord community](https://discord.gg/J3W9b5AZJR)
 3. Visit the [subreddit](https://www.reddit.com/r/AtomicAgents/)
 

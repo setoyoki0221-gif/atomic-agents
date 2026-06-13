@@ -1,6 +1,6 @@
 # Atomic Agents Plugin for Claude Code
 
-A Claude Code plugin that gives Claude deep, just-in-time knowledge of the [Atomic Agents](https://github.com/BrainBlend-AI/atomic-agents) Python framework. When you work on an Atomic Agents codebase, Claude picks up the right patterns for schemas, agents, tools, context providers, prompts, orchestration, and provider wiring — without you having to paste documentation or repeat conventions.
+A Claude Code plugin that gives Claude deep, just-in-time knowledge of the [Atomic Agents](https://github.com/eigenwise/atomic-agents) Python framework. When you work on an Atomic Agents codebase, Claude picks up the right patterns for schemas, agents, tools, context providers, prompts, orchestration, and provider wiring — without you having to paste documentation or repeat conventions.
 
 ## What you get
 
@@ -15,22 +15,25 @@ This follows the hybrid pattern Anthropic themselves ship: reference skills for 
 
 ## Install
 
-### Recommended — from the BrainBlend marketplace
+### Recommended — from the Eigenwise marketplace
 
 ```
-/plugin marketplace add BrainBlend-AI/atomic-agents
-/plugin install atomic-agents@brainblend-plugins
+/plugin marketplace add eigenwise/atomic-agents
+/plugin install atomic-agents@eigenwise
 ```
 
 This path gets you the latest version immediately. We control the marketplace, so pushes to `main` in this repo reach users on the next `/plugin marketplace update` (and auto-update is on by default for git-hosted marketplaces you've explicitly added).
 
-### From the official Anthropic marketplace
+### From Anthropic's community marketplace
+
+Once the plugin is approved in Anthropic's public community directory, add that marketplace and install from it:
 
 ```
-/plugin install atomic-agents@claude-plugins-official
+/plugin marketplace add anthropics/claude-plugins-community
+/plugin install atomic-agents@claude-community
 ```
 
-> **Note (April 2026)**: The entry in the official marketplace currently uses a source type that silently drops the plugin's subdirectory `path`, causing the plugin to load empty (zero agents, zero skills). Tracking fix at [anthropics/claude-plugins-official#1436](https://github.com/anthropics/claude-plugins-official/issues/1436). Until that's applied, use the BrainBlend marketplace above.
+The community directory is submission-only — entries are submitted through the [plugin directory submission form](https://clau.de/plugin-directory-submission) (pull requests against the catalog repo are closed automatically). After approval, CI re-pins the entry to new commits on this repo's `main` as they land, so the Eigenwise marketplace above always tracks the same source.
 
 ### Team projects (declarative)
 
@@ -39,12 +42,12 @@ To require this plugin for everyone who opens a given repo, add it to the projec
 ```json
 {
   "extraKnownMarketplaces": {
-    "brainblend-plugins": {
-      "source": { "source": "github", "repo": "BrainBlend-AI/atomic-agents" }
+    "eigenwise": {
+      "source": { "source": "github", "repo": "eigenwise/atomic-agents" }
     }
   },
   "enabledPlugins": {
-    "atomic-agents@brainblend-plugins": true
+    "atomic-agents@eigenwise": true
   }
 }
 ```
@@ -103,8 +106,8 @@ MIT — see `LICENSE`.
 
 ## Links
 
-- Framework: https://github.com/BrainBlend-AI/atomic-agents
-- Examples: https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples
+- Framework: https://github.com/eigenwise/atomic-agents
+- Examples: https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples
 - Changelog: `CHANGELOG.md`
 
-Built by [BrainBlend AI](https://github.com/BrainBlend-AI).
+Built by [Eigenwise](https://github.com/eigenwise).

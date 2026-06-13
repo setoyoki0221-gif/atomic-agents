@@ -155,7 +155,7 @@ class WeatherToolConfig(BaseToolConfig):
         description="Open-Meteo forecast endpoint.",
     )
     user_agent: str = Field(
-        default="atomic-agents-weather-tool/1.0 (+https://github.com/BrainBlend-AI/atomic-agents)",
+        default="atomic-agents-weather-tool/1.0 (+https://github.com/eigenwise/atomic-agents)",
         description="User agent for HTTP requests.",
     )
     timeout: float = Field(default=15.0, ge=1.0, le=120.0, description="HTTP request timeout in seconds.")

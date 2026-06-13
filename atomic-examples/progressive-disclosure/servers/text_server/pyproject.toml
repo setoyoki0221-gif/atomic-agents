@@ -10,7 +10,7 @@ name = "pd-text-server"
 version = "0.1.0"
 description = "MCP server with text manipulation tools for progressive disclosure demo"
 authors = [
-    { name = "KennyVaneetvelde", email = "kenny@inosta.be" }
+    { name = "Kenny Vaneetvelde", email = "kenny@eigenwise.io" }
 ]
 requires-python = ">=3.12"
 dependencies = [

@@ -84,7 +84,7 @@ class HackerNewsSearchToolConfig(BaseToolConfig):
 
     base_url: str = Field(default="https://hn.algolia.com/api/v1", description="Algolia HN search base URL.")
     user_agent: str = Field(
-        default="atomic-agents-hackernews-tool/1.0 (+https://github.com/BrainBlend-AI/atomic-agents)",
+        default="atomic-agents-hackernews-tool/1.0 (+https://github.com/eigenwise/atomic-agents)",
         description="User agent for HTTP requests.",
     )
     timeout: float = Field(default=15.0, ge=1.0, le=120.0, description="HTTP request timeout in seconds.")

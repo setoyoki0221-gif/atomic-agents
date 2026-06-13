@@ -128,7 +128,7 @@ Only safe when the agents run **sequentially** on the same thread. Concurrent ru
 
 Each agent has its own `ChatHistory()`. Outputs are passed via typed schemas at the call site. Default for multi-agent orchestration — keeps state contained.
 
-### Agent-to-agent messaging (addresses [GitHub issue #58](https://github.com/BrainBlend-AI/atomic-agents/issues/58))
+### Agent-to-agent messaging (addresses [GitHub issue #58](https://github.com/eigenwise/atomic-agents/issues/58))
 
 Each agent keeps its own history; the orchestrator manually injects the other agent's output as a `"user"` message and calls `run(None)` to let the recipient continue.
 

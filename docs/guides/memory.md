@@ -25,7 +25,7 @@ This guide covers everything you need to know about managing conversation memory
 
 ### The Problem This Solves
 
-A common question from developers (see [GitHub Issue #58](https://github.com/BrainBlend-AI/atomic-agents/issues/58)):
+A common question from developers (see [GitHub Issue #58](https://github.com/eigenwise/atomic-agents/issues/58)):
 
 > "In most of the examples only the initial message is added, not any subsequent runs. Is this automatic?"
 
@@ -1212,4 +1212,4 @@ Key takeaways:
 4. **Context Providers**: Inject dynamic information (RAG, user data, time) into system prompts
 5. **Multi-Agent**: Use shared history, agent-to-agent messaging, or context providers depending on your needs
 
-For questions or issues, visit our [GitHub repository](https://github.com/BrainBlend-AI/atomic-agents) or [Reddit community](https://www.reddit.com/r/AtomicAgents/).
+For questions or issues, visit our [GitHub repository](https://github.com/eigenwise/atomic-agents) or [Reddit community](https://www.reddit.com/r/AtomicAgents/).

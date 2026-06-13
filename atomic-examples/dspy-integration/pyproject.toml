@@ -11,7 +11,7 @@ version = "1.0.0"
 description = "DSPy + Atomic Agents integration example - combining prompt optimization with type-safe structured outputs"
 readme = "README.md"
 authors = [
-    { name = "BrainBlend AI", email = "kenny@brainblendai.com" }
+    { name = "Kenny Vaneetvelde", email = "kenny@eigenwise.io" }
 ]
 requires-python = ">=3.12"
 dependencies = [

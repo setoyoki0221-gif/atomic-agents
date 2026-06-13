@@ -3,8 +3,8 @@
 This example demonstrates how to use the Atomic Agents framework with **nested multimodal content** — images and PDFs inside nested Pydantic schemas, not just at the top level.
 
 This showcases the fixes for:
-- [#208](https://github.com/BrainBlend-AI/atomic-agents/issues/208): ChatHistory crashes with `TypeError` when schemas have both multimodal fields and nested Pydantic models
-- [#141](https://github.com/BrainBlend-AI/atomic-agents/issues/141): AgentMemory doesn't support multimodal data inside nested schemas
+- [#208](https://github.com/eigenwise/atomic-agents/issues/208): ChatHistory crashes with `TypeError` when schemas have both multimodal fields and nested Pydantic models
+- [#141](https://github.com/eigenwise/atomic-agents/issues/141): AgentMemory doesn't support multimodal data inside nested schemas
 
 ## Features
 

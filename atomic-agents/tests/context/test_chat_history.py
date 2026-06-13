@@ -102,7 +102,7 @@ def test_get_history(history):
     Ensure non-ASCII characters are serialized without Unicode escaping, because
     it can cause issue with some OpenAI models like GPT-4.1.
 
-    Reference ticket: https://github.com/BrainBlend-AI/atomic-agents/issues/138.
+    Reference ticket: https://github.com/eigenwise/atomic-agents/issues/138.
     """
     history.add_message("user", InputSchema(test_field="Hello"))
     history.add_message("assistant", MockOutputSchema(test_field="Hi there"))

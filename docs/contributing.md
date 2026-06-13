@@ -6,7 +6,7 @@ Thank you for your interest in contributing to Atomic Agents! This guide will he
 
 There are many ways to contribute to Atomic Agents:
 
-1. **Report Bugs**: Submit bug reports on our [Issue Tracker](https://github.com/BrainBlend-AI/atomic-agents/issues)
+1. **Report Bugs**: Submit bug reports on our [Issue Tracker](https://github.com/eigenwise/atomic-agents/issues)
 2. **Suggest Features**: Share your ideas for new features or improvements
 3. **Improve Documentation**: Help us make the documentation clearer and more comprehensive
 4. **Submit Code**: Fix bugs, add features, or create new tools
@@ -155,8 +155,8 @@ If you need help:
 
 - Join our [Reddit community](https://www.reddit.com/r/AtomicAgents/)
 - Check the [documentation](https://atomic-agents.readthedocs.io/)
-- Ask questions on [GitHub Discussions](https://github.com/BrainBlend-AI/atomic-agents/discussions)
+- Ask questions on [GitHub Discussions](https://github.com/eigenwise/atomic-agents/discussions)
 
 ## Code of Conduct
 
-Please note that this project is released with a Code of Conduct. By participating in this project you agree to abide by its terms. You can find the full text in our [GitHub repository](https://github.com/BrainBlend-AI/atomic-agents/blob/main/CODE_OF_CONDUCT.md).
+Please note that this project is released with a Code of Conduct. By participating in this project you agree to abide by its terms. You can find the full text in our [GitHub repository](https://github.com/eigenwise/atomic-agents/blob/main/CODE_OF_CONDUCT.md).

@@ -11,7 +11,7 @@ version = "0.1.0"
 description = "Deep research example for Atomic Agents"
 readme = "README.md"
 authors = [
-    { name = "Kenny Vaneetvelde", email = "kenny@brainblendai.com" }
+    { name = "Kenny Vaneetvelde", email = "kenny@eigenwise.io" }
 ]
 requires-python = ">=3.12"
 dependencies = [

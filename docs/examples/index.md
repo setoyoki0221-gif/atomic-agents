@@ -18,7 +18,7 @@ Simple examples to get started with the framework:
 - Custom input/output schemas
 - Multiple provider support
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/quickstart)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/quickstart)** - Browse the complete source code and run the examples
 
 ## Hooks System
 
@@ -31,7 +31,7 @@ Comprehensive monitoring and error handling with the AtomicAgent hook system:
 - Production-ready error isolation
 - Real-time performance dashboards
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/hooks-example)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/hooks-example)** - Browse the complete source code and run the examples
 
 ## Basic Multimodal
 
@@ -42,7 +42,7 @@ Examples of working with images and text:
 - Visual content generation
 - Multi-image comparisons
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/basic-multimodal)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/basic-multimodal)** - Browse the complete source code and run the examples
 
 ## RAG Chatbot
 
@@ -54,7 +54,7 @@ Build context-aware chatbots with retrieval-augmented generation:
 - Source attribution
 - Follow-up suggestions
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/rag-chatbot)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/rag-chatbot)** - Browse the complete source code and run the examples
 
 ## Web Search Agent
 
@@ -66,7 +66,7 @@ Create agents that can search and analyze web content:
 - Multi-source research
 - Citation tracking
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/web-search-agent)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/web-search-agent)** - Browse the complete source code and run the examples
 
 ## Deep Research
 
@@ -78,7 +78,7 @@ Perform comprehensive research tasks:
 - Structured output generation
 - Citation management
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/deep-research)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/deep-research)** - Browse the complete source code and run the examples
 
 ## YouTube Summarizer
 
@@ -90,7 +90,7 @@ Extract and analyze information from videos:
 - Timestamp linking
 - Chapter generation
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/youtube-summarizer)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/youtube-summarizer)** - Browse the complete source code and run the examples
 
 ## YouTube to Recipe
 
@@ -102,7 +102,7 @@ Convert cooking videos into structured recipes:
 - Step-by-step instructions
 - Time and temperature conversion
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/youtube-to-recipe)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/youtube-to-recipe)** - Browse the complete source code and run the examples
 
 ## Orchestration Agent
 
@@ -114,7 +114,7 @@ Coordinate multiple agents for complex tasks:
 - Error handling
 - Result aggregation
 
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/orchestration-agent)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/orchestration-agent)** - Browse the complete source code and run the examples
 
 ## MCP Agent
 
@@ -127,4 +127,4 @@ Build intelligent agents using the Model Context Protocol:
 - Extensible tool architecture
 
 [View MCP Agent Documentation](mcp_agent.md)
-📂 **[View on GitHub](https://github.com/BrainBlend-AI/atomic-agents/tree/main/atomic-examples/mcp-agent)** - Browse the complete source code and run the examples
+📂 **[View on GitHub](https://github.com/eigenwise/atomic-agents/tree/main/atomic-examples/mcp-agent)** - Browse the complete source code and run the examples

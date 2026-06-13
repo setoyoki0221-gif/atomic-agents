@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.1] - 2026-04-16
 
-Bug-fix release addressing two recurring false positives from `atomic-reviewer` reported in [issue #238](https://github.com/BrainBlend-AI/atomic-agents/issues/238).
+Bug-fix release addressing two recurring false positives from `atomic-reviewer` reported in [issue #238](https://github.com/eigenwise/atomic-agents/issues/238).
 
 ### Fixed
 

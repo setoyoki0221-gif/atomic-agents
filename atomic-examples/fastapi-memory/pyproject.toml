@@ -11,7 +11,7 @@ version = "0.1.0"
 description = "Simple FastAPI integration example with Atomic Agents"
 readme = "README.md"
 authors = [
-    { name = "BrainBlend AI" }
+    { name = "Kenny Vaneetvelde", email = "kenny@eigenwise.io" }
 ]
 requires-python = ">=3.12"
 dependencies = [

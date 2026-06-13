@@ -225,7 +225,7 @@ Through Instructor, Atomic Agents supports all major LLM providers:
 
 ```bash
 # Clone the repository
-git clone https://github.com/BrainBlend-AI/atomic-agents.git
+git clone https://github.com/eigenwise/atomic-agents.git
 cd atomic-monorepo
 
 # Install dependencies
@@ -305,8 +305,8 @@ Recent improvements include:
 ## Community & Resources
 
 ### Documentation
-- **Main Docs:** https://brainblend-ai.github.io/atomic-agents/
-- **Repository:** https://github.com/BrainBlend-AI/atomic-agents
+- **Main Docs:** https://eigenwise.github.io/atomic-agents/
+- **Repository:** https://github.com/eigenwise/atomic-agents
 - **PyPI:** https://pypi.org/project/atomic-agents/
 
 ### Community

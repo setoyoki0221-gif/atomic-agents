@@ -15,7 +15,7 @@ This example demonstrates the powerful hook system integration in AtomicAgent, w
 
 1. Clone the main Atomic Agents repository:
    ```bash
-   git clone https://github.com/BrainBlend-AI/atomic-agents
+   git clone https://github.com/eigenwise/atomic-agents
    ```
 
 2. Navigate to the hooks-example directory:

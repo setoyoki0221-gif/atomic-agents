@@ -270,7 +270,7 @@ if __name__ == "__main__":
     try:
         result = scraper.run(
             WebpageScraperToolInputSchema(
-                url="https://github.com/BrainBlend-AI/atomic-agents",
+                url="https://github.com/eigenwise/atomic-agents",
                 include_links=True,
             )
         )

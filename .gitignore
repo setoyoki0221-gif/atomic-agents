@@ -152,9 +152,12 @@ personal_scripts/
 debug.log
 
 # AI tools
-.claude
+.claude/*
 !.claude/skills/
 !.claude/skills/**
+!.claude/settings.json
+!.claude/.codebase-info/
+!.claude/.codebase-info/**
 CLAUDE.md
 CLAUDE.local.md
 .serena

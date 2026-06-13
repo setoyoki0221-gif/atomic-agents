@@ -1,0 +1,13 @@
+{
+  "enabledPlugins": {
+    "codebase-mapper@claude-toolshed": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-toolshed": {
+      "source": {
+        "source": "github",
+        "repo": "Eigenwise/claude-toolshed"
+      }
+    }
+  }
+}

@@ -389,7 +389,7 @@ uv sync --all-packages
 
 ## Provider & Model Compatibility
 
-Atomic Agents depends on the [Instructor](https://github.com/jxnl/instructor) package. This means that in all examples where OpenAI is used, any other API supported by Instructor can also be used—such as Ollama, Groq, Mistral, Cohere, Anthropic, Gemini, [MiniMax](https://www.minimax.io/), and more. For a complete list, please refer to the Instructor documentation on its [GitHub page](https://github.com/jxnl/instructor).
+Atomic Agents depends on the [Instructor](https://github.com/jxnl/instructor) package. This means that in all examples where OpenAI is used, any other API supported by Instructor can also be used, such as Ollama, Groq, Mistral, Cohere, Anthropic, Gemini, [MiniMax](https://www.minimax.io/), and more. For a complete list, please refer to the Instructor documentation on its [GitHub page](https://github.com/jxnl/instructor).
 
 ## Support
 
@@ -434,7 +434,7 @@ For full development setup and guidelines, please refer to the [Developer Guide]
 
 ## License
 
-This project is licensed under the MIT License—see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Additional Resources
 

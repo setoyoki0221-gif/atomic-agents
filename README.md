@@ -51,6 +51,8 @@ Built on [Instructor](https://github.com/jxnl/instructor) and [Pydantic](https:/
     - [Running the CLI](#running-the-cli)
   - [Project Structure](#project-structure)
   - [Provider \& Model Compatibility](#provider--model-compatibility)
+  - [Support](#support)
+    - [$ATOMIC (community token)](#atomic-community-token)
   - [Contributing](#contributing)
   - [License](#license)
   - [Additional Resources](#additional-resources)
@@ -388,6 +390,21 @@ uv sync --all-packages
 ## Provider & Model Compatibility
 
 Atomic Agents depends on the [Instructor](https://github.com/jxnl/instructor) package. This means that in all examples where OpenAI is used, any other API supported by Instructor can also be used—such as Ollama, Groq, Mistral, Cohere, Anthropic, Gemini, [MiniMax](https://www.minimax.io/), and more. For a complete list, please refer to the Instructor documentation on its [GitHub page](https://github.com/jxnl/instructor).
+
+## Support
+
+If Atomic Agents is useful to you and you'd like to support continued development, there are a few ways to chip in:
+
+- **[GitHub Sponsors](https://github.com/sponsors/Eigenwise)** — sponsor the project directly on GitHub.
+- **[Ko-fi](https://ko-fi.com/eigenwise)** — buy me a coffee, one-off or recurring.
+
+### $ATOMIC (community token)
+
+A community member launched a token called **Atomic Agents ($ATOMIC)** on the [Base](https://www.base.org/) network to support the project. I did not create it and I'm not its operator—it's an independent, community-run effort.
+
+- **Contract address:** `0xc0976cb8c4a990d55d3b3f0bf33eb1927ea9dba3`
+
+*Not investment advice. Treat $ATOMIC as a way to support a creator, not as a financial product or a promise of returns.*
 
 ## Contributing
 

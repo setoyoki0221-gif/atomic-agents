@@ -395,16 +395,26 @@ Atomic Agents depends on the [Instructor](https://github.com/jxnl/instructor) pa
 
 If Atomic Agents is useful to you and you'd like to support continued development, there are a few ways to chip in:
 
-- **[GitHub Sponsors](https://github.com/sponsors/Eigenwise)** — sponsor the project directly on GitHub.
-- **[Ko-fi](https://ko-fi.com/eigenwise)** — buy me a coffee, one-off or recurring.
+- **[GitHub Sponsors](https://github.com/sponsors/Eigenwise):** sponsor the project directly on GitHub.
+- **[Ko-fi](https://ko-fi.com/eigenwise):** buy me a coffee, one-off or recurring.
 
 ### $ATOMIC (community token)
 
-A community member launched a token called **Atomic Agents ($ATOMIC)** on the [Base](https://www.base.org/) network to support the project. I did not create it and I'm not its operator—it's an independent, community-run effort.
+A community member launched a token called **Atomic Agents ($ATOMIC)** on the [Base](https://www.base.org/) network to support the project. I did not create it and I'm not its operator. It's an independent, community-run effort.
 
-- **Contract address:** `0xc0976cb8c4a990d55d3b3f0bf33eb1927ea9dba3`
+- **Contract address (Base):** `0xc0976cb8c4a990d55d3b3f0bf33eb1927ea9dba3`
 
-*Not investment advice. Treat $ATOMIC as a way to support a creator, not as a financial product or a promise of returns.*
+If you want to chip in this way, here's roughly how it works:
+
+1. Set up a self-custody wallet that supports the **Base** network.
+2. Get some ETH onto Base (bridge it over, or withdraw to Base from an exchange that supports it).
+3. On a DEX that runs on Base, swap ETH for $ATOMIC using the exact contract address above.
+
+**Please read this first:**
+
+- **Verify the contract address.** Scammers create fake tokens with the same name and logo. The address above is the only official one.
+- **This is not investment advice, and there's no promise of returns.** Treat $ATOMIC as a way to support a creator, nothing more. It's volatile and you could lose what you put in, so do your own research.
+- Because I don't operate the token, I can't help with wallets, transactions, or support issues around it.
 
 ## Contributing
 

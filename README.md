@@ -293,24 +293,6 @@ In addition to the quickstart examples, we have more complex examples demonstrat
 
 For a complete list of examples, see the [examples directory](/atomic-examples/).
 
-## 🚀 Version 2.0 Released!
-
-[![What's New in V2.0](./.assets/whats-new-v2-thumbnail.png)](https://www.youtube.com/watch?v=ro-pM2bPmr0)
-
-[**Watch: What's New in Atomic Agents V2.0**](https://www.youtube.com/watch?v=ro-pM2bPmr0)
-
-**Atomic Agents v2.0 is here with major improvements!** This release includes breaking changes that significantly improve the developer experience:
-
-### Key Changes in v2.0:
-- **Cleaner imports**: Eliminated `.lib` from import paths
-- **Renamed classes**: `BaseAgent` → `AtomicAgent`, `BaseAgentConfig` → `AgentConfig`, and more
-- **Better type safety**: Generic type parameters for tools and agents
-- **Enhanced streaming**: New `run_stream()` and `run_async_stream()` methods
-- **Improved organization**: Better module structure with `context`, `connectors`, and more
-
-### ⚠️ Upgrading from v1.x
-If you're upgrading from v1.x, please read our comprehensive [**Upgrade Guide**](UPGRADE_DOC.md) for detailed migration instructions.
-
 ## Atomic Forge & CLI
 
 Atomic Forge is a collection of tools that can be used with Atomic Agents to extend its functionality. Current tools include:

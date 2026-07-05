@@ -11,6 +11,7 @@ override ``add_message`` to persist on every write.
 Run this script twice: the second run rehydrates the conversation from the first.
 """
 
+import contextlib
 import os
 import sqlite3
 from typing import Optional
@@ -38,18 +39,28 @@ if not API_KEY:
 
 
 class SQLiteChatHistory(ChatHistory):
-    """A ChatHistory that persists to a local SQLite database, keyed by session_id."""
+    """A ChatHistory that persists to a local SQLite database, keyed by session_id.
+
+    Follows the recommended pattern from the Memory guide: subclass ChatHistory to inherit
+    turn handling and serialization, then override add_message to persist. copy() is also
+    overridden so the agent's initial_history snapshot and reset_history() keep this
+    persistent backend instead of silently degrading to a plain in-memory ChatHistory.
+
+    A short-lived connection is opened per operation (via contextlib.closing) rather than
+    held open for the object's lifetime, so no handle is leaked and the backend is safe to
+    use from more than one thread.
+    """
 
     def __init__(self, session_id: str, db_path: str = "chat_history.db", max_messages: Optional[int] = None):
         super().__init__(max_messages=max_messages)
         self.session_id = session_id
         self.db_path = db_path
 
-        self._connection = sqlite3.connect(self.db_path)
-        self._connection.execute("CREATE TABLE IF NOT EXISTS sessions (session_id TEXT PRIMARY KEY, data TEXT)")
-        self._connection.commit()
+        with contextlib.closing(sqlite3.connect(self.db_path)) as conn:
+            conn.execute("CREATE TABLE IF NOT EXISTS sessions (session_id TEXT PRIMARY KEY, data TEXT)")
+            conn.commit()
+            row = conn.execute("SELECT data FROM sessions WHERE session_id = ?", (self.session_id,)).fetchone()
 
-        row = self._connection.execute("SELECT data FROM sessions WHERE session_id = ?", (self.session_id,)).fetchone()
         if row is not None:
             self.load(row[0])
 
@@ -58,11 +69,18 @@ class SQLiteChatHistory(ChatHistory):
         self._save()
 
     def _save(self) -> None:
-        self._connection.execute(
-            "INSERT OR REPLACE INTO sessions (session_id, data) VALUES (?, ?)",
-            (self.session_id, self.dump()),
-        )
-        self._connection.commit()
+        with contextlib.closing(sqlite3.connect(self.db_path)) as conn:
+            conn.execute(
+                "INSERT OR REPLACE INTO sessions (session_id, data) VALUES (?, ?)",
+                (self.session_id, self.dump()),
+            )
+            conn.commit()
+
+    def copy(self) -> "SQLiteChatHistory":
+        new_history = SQLiteChatHistory(self.session_id, db_path=self.db_path, max_messages=self.max_messages)
+        new_history.load(self.dump())
+        new_history.current_turn_id = self.current_turn_id
+        return new_history
 
 
 def main() -> None:

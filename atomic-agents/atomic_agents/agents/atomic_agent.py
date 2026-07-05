@@ -190,7 +190,7 @@ class AtomicAgent[InputSchema: BaseIOSchema, OutputSchema: BaseIOSchema]:
         """
         self.client = config.client
         self.model = config.model
-        self.history = config.history or ChatHistory()
+        self.history = config.history if config.history is not None else ChatHistory()
         self.system_prompt_generator = config.system_prompt_generator or SystemPromptGenerator()
         self.system_role = config.system_role
         self.assistant_role = config.assistant_role

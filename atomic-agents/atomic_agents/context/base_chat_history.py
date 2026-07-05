@@ -9,7 +9,14 @@ if TYPE_CHECKING:
 
 class BaseChatHistory(ABC):
     """
-    Declares the memory/history contract that ``AtomicAgent`` depends on.
+    Declares the public contract of a chat history.
+
+    This is the full method surface of the built-in ``ChatHistory``, of which ``AtomicAgent``
+    itself uses a subset (``add_message``, ``get_history``, ``initialize_turn``,
+    ``delete_turn_id``, ``copy``, plus direct reads of the ``history`` / ``current_turn_id``
+    attributes). The remaining methods (``dump`` / ``load`` / ``get_message_count`` /
+    ``get_current_turn_id``) round out the standard history surface that tooling and callers
+    rely on.
 
     This is an interface-only abstract base class: it defines no state and no behavior,
     only the methods a chat history implementation must provide. ``ChatHistory`` is the
@@ -131,6 +138,13 @@ class BaseChatHistory(ABC):
     def copy(self) -> "BaseChatHistory":
         """
         Creates a copy of the chat history, independent of the original.
+
+        ``AtomicAgent`` calls ``copy()`` to snapshot ``initial_history`` at construction and
+        to restore it in ``reset_history()``. The built-in ``ChatHistory.copy()`` returns a
+        plain ``ChatHistory``; a subclass that carries extra state (a database handle, a
+        ``session_id``, a store reference) MUST override ``copy()`` to return its own type,
+        otherwise ``reset_history()`` silently replaces the backend with a plain in-memory
+        history and later writes stop reaching the store.
 
         Returns:
             BaseChatHistory: A copy of the chat history.

@@ -444,9 +444,26 @@ class PersistentHistory(ChatHistory):
     def add_message(self, role, content):
         super().add_message(role, content)
         self.store.put(self.session_id, self.dump())
+
+    def copy(self):
+        # AtomicAgent calls copy() for its initial_history snapshot and reset_history().
+        # Without this override, copy() returns a plain ChatHistory and your backend is
+        # silently dropped after reset_history() (later writes stop reaching the store).
+        new_history = PersistentHistory(self.session_id, self.store, max_messages=self.max_messages)
+        new_history.load(self.dump())
+        new_history.current_turn_id = self.current_turn_id
+        return new_history
 ```
 
-That's the whole pattern: load on init if there's saved state, persist on every `add_message`. `dump()`/`load()` already round-trip the full history, so there's no serialization logic to write yourself.
+The core of the pattern is small: load on init if there's saved state, persist on every `add_message`. `dump()`/`load()` already round-trip the full history, so there's no serialization logic to write yourself.
+
+```{important}
+Override `copy()` too. `AtomicAgent` snapshots `initial_history` with `copy()` at construction and restores it in `reset_history()`. The built-in `ChatHistory.copy()` hard-codes a plain `ChatHistory`, so a subclass that carries extra state (a store handle, a `session_id`) that forgets to override `copy()` will be **silently replaced by a non-persistent in-memory history** the first time `reset_history()` runs. Any subclass with its own state must override `copy()` to return its own type.
+```
+
+```{note}
+This pattern re-serializes and rewrites the **entire** history on every message (`self.dump()`), which is fine for a demo but O(n²) over a long conversation. A production backend against Redis/Postgres/etc. should persist incrementally (append the new message) rather than dumping the whole history each write.
+```
 
 ### From-Scratch Alternative
 

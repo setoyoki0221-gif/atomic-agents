@@ -2,7 +2,7 @@
 name: new-app
 description: Scaffold a new Atomic Agents project from scratch — create the directory, `pyproject.toml`, env file, first agent, and a runnable entry point. Use when the user asks to start a new atomic-agents project from scratch, says "scaffold" / "new project" / "start from zero", or runs `/atomic-agents:new-app`.
 disable-model-invocation: true
-argument-hint: [project-name]
+argument-hint: "[project-name]"
 ---
 
 # New Atomic Agents Project

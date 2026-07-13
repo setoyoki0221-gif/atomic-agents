@@ -37,7 +37,7 @@ class SystemPromptGenerator(BaseSystemPromptGenerator):
         super().__init__(context_providers=context_providers)
         self.background = background or ["This is a conversation with a helpful and friendly AI assistant."]
         self.steps = steps or []
-        self.output_instructions = output_instructions or []
+        self.output_instructions = list(output_instructions) if output_instructions else []
 
         self.output_instructions.extend(
             [

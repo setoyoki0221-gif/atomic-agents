@@ -156,6 +156,8 @@ debug.log
 !.claude/skills/
 !.claude/skills/**
 !.claude/settings.json
+!.claude/live-rules.md
+!.claude/clean-code-principles.md
 !.claude/.codebase-info/
 !.claude/.codebase-info/**
 CLAUDE.md

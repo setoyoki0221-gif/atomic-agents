@@ -40,19 +40,15 @@ atomic-monorepo/
 
 ### 1. atomic-agents/ - Core Framework
 
-**Published as:** `atomic-agents` on PyPI
-**Current Version:** 2.2.2
+**Published as:** `atomic-agents` on PyPI (version lives in the root `pyproject.toml`)
 **Purpose:** Main Python package containing all core framework components
 
 **Key Components:**
 - `agents/` - AtomicAgent class and agent configuration
-- `base/` - Base abstractions (BaseIOSchema, BaseTool, BasePrompt, BaseResource)
-- `context/` - Chat history and system prompt generation
+- `base/` - Base abstractions (BaseIOSchema, BaseTool, BaseToolConfig)
+- `context/` - ChatHistory, SystemPromptGenerator, dynamic context providers
 - `connectors/` - External integrations (MCP support)
-- `lib/` - Extended library components (components, factories, utils)
-- `memory/` - Memory management systems
-- `prompting/` - Prompt engineering utilities
-- `services/` - Service integrations
+- `utils/` - Shared utilities (token counting, formatting)
 
 **Installation:**
 ```bash
@@ -138,13 +134,17 @@ Every Atomic Agent consists of:
 All data flows through typed Pydantic schemas:
 
 ```python
-from atomic_agents.base import BaseIOSchema
+from atomic_agents import BaseIOSchema
 from pydantic import Field
 
 class CustomOutputSchema(BaseIOSchema):
+    """Response with follow-up suggestions."""
+
     chat_message: str = Field(..., description="The response message")
     suggested_questions: list[str] = Field(..., description="Follow-up questions")
 ```
+
+Every `BaseIOSchema` subclass requires a non-empty docstring — the framework enforces this at class-definition time, and the docstring plus field descriptions flow into the LLM prompt via Instructor.
 
 ### Composability Pattern
 
@@ -161,14 +161,20 @@ This creates predictable data flow pipelines with type safety at each step.
 Dynamic context injection pattern allows runtime enhancement of prompts without modifying agent code:
 
 ```python
-context_provider = CustomContextProvider()
-agent = AtomicAgent(
-    system_prompt=prompt,
-    input_schema=InputSchema,
-    output_schema=OutputSchema,
-    context_providers=[context_provider]  # Inject runtime context
-)
+from atomic_agents.context import BaseDynamicContextProvider
+
+class SearchResultsProvider(BaseDynamicContextProvider):
+    def __init__(self, title: str):
+        super().__init__(title=title)
+        self.results: list[str] = []
+
+    def get_info(self) -> str:
+        return "\n".join(self.results)
+
+agent.register_context_provider("search_results", SearchResultsProvider("Search Results"))
 ```
+
+Providers can also be passed up front via `SystemPromptGenerator(context_providers={...})`. `get_info()` runs on every `agent.run()`, so keep it free of blocking I/O.
 
 ### Model Context Protocol (MCP)
 
@@ -324,31 +330,45 @@ Recent improvements include:
 ## Quick Start
 
 ```python
-from atomic_agents import AtomicAgent
-from atomic_agents.base import BaseIOSchema
+import os
+
+import instructor
+import openai
 from pydantic import Field
 
-# Define schemas
+from atomic_agents import AgentConfig, AtomicAgent, BaseIOSchema
+from atomic_agents.context import ChatHistory, SystemPromptGenerator
+
 class InputSchema(BaseIOSchema):
+    """User's question for the agent."""
+
     query: str = Field(..., description="User's question")
 
 class OutputSchema(BaseIOSchema):
+    """Agent's answer with a confidence estimate."""
+
     answer: str = Field(..., description="Agent's response")
     confidence: float = Field(..., description="Confidence score 0-1")
 
-# Create agent
-agent = AtomicAgent(
-    system_prompt="You are a helpful assistant. Provide accurate answers.",
-    input_schema=InputSchema,
-    output_schema=OutputSchema,
-    model="gpt-5-mini",
+client = instructor.from_openai(openai.OpenAI(api_key=os.environ["OPENAI_API_KEY"]))
+
+agent = AtomicAgent[InputSchema, OutputSchema](
+    config=AgentConfig(
+        client=client,
+        model="gpt-5-mini",
+        history=ChatHistory(),
+        system_prompt_generator=SystemPromptGenerator(
+            background=["You are a helpful assistant. Provide accurate answers."],
+        ),
+    )
 )
 
-# Run agent
 result = agent.run(InputSchema(query="What is atomic computing?"))
 print(result.answer)
 print(f"Confidence: {result.confidence}")
 ```
+
+The type parameters on `AtomicAgent[In, Out]` carry runtime information (they drive Instructor's `response_model`), so write them explicitly and keep them accurate. The client must always be wrapped with Instructor — a raw provider SDK client will not enforce output schemas.
 
 ---
 

@@ -5,6 +5,27 @@ All notable changes to the Atomic Agents Claude Code Plugin will be documented i
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Rebranded BrainBlend → Eigenwise: marketplace name, URLs, and install docs now point at the `eigenwise` GitHub home. Install via `/plugin marketplace add eigenwise/atomic-agents`.
+- `new-app` MiniMax default model updated to MiniMax M3.
+
+### Fixed
+
+- Quoted `argument-hint` YAML values in skill frontmatter so GitHub Copilot CLI ≥1.0.65 loads all skills ([#265](https://github.com/eigenwise/atomic-agents/pull/265)).
+
+## [2.1.0] - 2026-04-29
+
+### Added
+
+- Four action-oriented creation skills: `create-atomic-schema`, `create-atomic-agent`, `create-atomic-tool`, `create-atomic-context-provider`. Each walks a clarify → write → verify → hand-off workflow for its component type, auto-triggering on the matching phrasing ("create a schema", "add a tool", ...). The `framework` skill and `new-app` scaffolder route to them instead of duplicating the material.
+
+### Fixed
+
+- `atomic-reviewer` no longer flags current-generation model names as errors.
+
 ## [2.0.1] - 2026-04-16
 
 Bug-fix release addressing two recurring false positives from `atomic-reviewer` reported in [issue #238](https://github.com/eigenwise/atomic-agents/issues/238).

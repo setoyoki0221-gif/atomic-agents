@@ -38,10 +38,6 @@ jobs:
         run: |
           uv sync
 
-      - name: Sync version from pyproject.toml
-        run: |
-          uv run python scripts/sync_version.py
-
       - name: Build singlehtml for documentation extraction
         run: |
           cd docs
